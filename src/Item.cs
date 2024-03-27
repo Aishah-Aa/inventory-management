@@ -1,31 +1,35 @@
 namespace sda_onsite_2_inventory_management.src
 {
-    public class Item
-    {
-        private readonly string _name;
+  public class Item : Base
+  {
+    private string _name;
 
-        private readonly int _quantity;
-        private readonly DateTime _createdAt;
+    private int _quantity;
+    private readonly DateTime _createdAt;
+    // var item1 = new Item{"fruits", -20}
+
+    public Item(string name, int quantity, DateTime? createdAt)
+    {
+      _name = name;
+      _quantity = quantity < 0 ? throw new ArgumentException("Quantity should be bigger than 0" : quantity);
+      _createdAt = createdAt is null ? DateTime.Now: createdAt;
+    }
+
+    public string GetName()
+    {
+      return _name;
+    }
     
-      public Item(string name, int quantity){
-            _name = name;
-            _quantity = quantity;
-            _createdAt = DateTime.Now;
-         }
+    public int GetQuantity()
+    {
+      return _quantity;
+    }
+
     
-         public string GetName()
-         {
-           return _name;
-         }
-         public DateTime GetCreatedAt()
-         {
-          return _createdAt;
-         }
-         public int GetQuantity()
-         {
-           return _quantity;
-         }
+
+    
+
 
   }
 
-}
+};
