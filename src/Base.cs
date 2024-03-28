@@ -2,14 +2,13 @@ namespace sda_onsite_2_inventory_management.src
 {
     public class Base
     {
-        private int _id;
+        private readonly _id;
         private DateTime _createdAt;
 
 
         public Base()
         {
             _id++;
-            _createdAt = DateTime.Now;
 
         }
 
@@ -17,7 +16,5 @@ namespace sda_onsite_2_inventory_management.src
         {
             return _createdAt;
         }
-
     }
-
 }
